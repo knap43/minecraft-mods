@@ -1,0 +1,6 @@
+{
+  "block.helpwanted.help_wanted_board": "Help Wanted Board",
+  "message.helpwanted.no_bed": "No unclaimed bed nearby — nobody will apply.",
+  "message.helpwanted.next": "Next applicant in about %s days.",
+  "message.helpwanted.soon": "An applicant is on the way."
+}

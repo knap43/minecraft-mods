@@ -1,0 +1,6 @@
+{
+  "block.helpwanted.help_wanted_board": "Доска «Требуются работники»",
+  "message.helpwanted.no_bed": "Поблизости нет свободной кровати — никто не придёт.",
+  "message.helpwanted.next": "Следующий соискатель — примерно через %s дн.",
+  "message.helpwanted.soon": "Соискатель уже в пути."
+}

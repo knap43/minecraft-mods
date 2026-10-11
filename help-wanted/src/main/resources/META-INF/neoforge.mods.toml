@@ -1,0 +1,27 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "helpwanted"
+version = "1.0.0"
+displayName = "Help Wanted"
+authors = "knap43"
+description = '''
+Hang a Help Wanted board near your base and, every few days, a jobless villager
+wanders in looking for work — provided there is a free bed waiting for them.
+'''
+
+[[dependencies.helpwanted]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.helpwanted]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.21.2)"
+ordering = "NONE"
+side = "BOTH"
