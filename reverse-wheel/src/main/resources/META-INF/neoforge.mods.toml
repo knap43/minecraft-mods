@@ -1,0 +1,30 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "reversewheel"
+version = "1.0.0"
+displayName = "Reverse Wheel"
+displayTest = "IGNORE_ALL_VERSION"
+authors = "knap43"
+description = '''
+Reverses the mouse wheel's direction when scrolling through the hotbar.
+'''
+
+[[mixins]]
+config = "reversewheel.mixins.json"
+
+[[dependencies.reversewheel]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.0,)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.reversewheel]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.21.2)"
+ordering = "NONE"
+side = "CLIENT"
