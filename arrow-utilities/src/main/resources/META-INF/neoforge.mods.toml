@@ -1,0 +1,30 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "arrowutilities"
+version = "1.0.0"
+displayName = "Arrow Utilities"
+authors = "knap43"
+description = '''
+Arrows stay visibly lodged in any mob they hit, survive saving and reloading,
+and drop as items when the mob dies. Works with 2D Projectiles.
+'''
+
+[[mixins]]
+config = "arrowutilities.mixins.json"
+
+[[dependencies.arrowutilities]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.arrowutilities]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.21.2)"
+ordering = "NONE"
+side = "BOTH"

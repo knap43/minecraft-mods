@@ -1,0 +1,53 @@
+name: Arrow Utilities
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'arrow-utilities/**'
+      - '.github/workflows/arrow-utilities.yml'
+    tags: ['arrow-utilities-v*']
+  pull_request:
+    paths:
+      - 'arrow-utilities/**'
+      - '.github/workflows/arrow-utilities.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    working-directory: arrow-utilities
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: gradle/actions/setup-gradle@v5
+
+      - name: Build
+        run: |
+          chmod +x gradlew
+          ./gradlew build
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: arrow-utilities
+          path: arrow-utilities/build/libs/*.jar
+          if-no-files-found: error
+
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/arrow-utilities-v')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Arrow Utilities ${{ github.ref_name }}
+          files: arrow-utilities/build/libs/*.jar
+          generate_release_notes: true
