@@ -1,0 +1,37 @@
+{
+    "targets": [
+        "swap",
+        "final"
+    ],
+    "passes": [
+        {
+            "name": "photomode:dof",
+            "intarget": "minecraft:main",
+            "outtarget": "swap",
+            "use_linear_filter": true,
+            "auxtargets": [
+                { "name": "DepthSampler", "id": "minecraft:main:depth" }
+            ],
+            "uniforms": [
+                { "name": "BlurDir", "values": [ 1.0, 0.0 ] }
+            ]
+        },
+        {
+            "name": "photomode:dof",
+            "intarget": "swap",
+            "outtarget": "final",
+            "use_linear_filter": true,
+            "auxtargets": [
+                { "name": "DepthSampler", "id": "minecraft:main:depth" }
+            ],
+            "uniforms": [
+                { "name": "BlurDir", "values": [ 0.0, 1.0 ] }
+            ]
+        },
+        {
+            "name": "blit",
+            "intarget": "final",
+            "outtarget": "minecraft:main"
+        }
+    ]
+}

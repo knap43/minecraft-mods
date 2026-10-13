@@ -1,0 +1,27 @@
+{
+  "key.categories.photomode": "Photo Mode",
+  "key.photomode.toggle": "Toggle photo mode",
+  "key.photomode.player": "Show/hide player",
+  "key.photomode.dof": "Depth of field",
+  "key.photomode.isometric": "Isometric view",
+  "key.photomode.freeze": "Freeze world",
+  "key.photomode.rotate_left": "Rotate isometric view left",
+  "key.photomode.rotate_right": "Rotate isometric view right",
+
+  "photomode.msg.on": "Photo mode",
+  "photomode.msg.off": "Photo mode off",
+  "photomode.msg.player": "Player: %s",
+  "photomode.msg.dof": "Depth of field: %s",
+  "photomode.msg.isometric": "Isometric: %s",
+  "photomode.msg.freeze": "World frozen: %s",
+  "photomode.msg.freeze_unavailable": "Freezing is only available in singleplayer",
+  "photomode.msg.speed": "Speed: %s blocks/s",
+  "photomode.msg.zoom": "View height: %s blocks",
+  "photomode.msg.dof_strength": "Blur strength: %s",
+
+  "photomode.hint.title": "Photo mode",
+  "photomode.hint.move": "Move: WASD, jump, sneak · Look: mouse",
+  "photomode.hint.wheel": "Wheel: speed (zoom in isometric) · Sprint + wheel: blur",
+  "photomode.hint.keys": "%s player · %s depth of field · %s isometric · %s freeze",
+  "photomode.hint.exit": "%s to leave · F2 to take a screenshot"
+}

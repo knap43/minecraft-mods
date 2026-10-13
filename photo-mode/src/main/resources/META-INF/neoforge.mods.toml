@@ -1,0 +1,31 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "photomode"
+version = "1.0.0"
+displayName = "Photo Mode"
+displayTest = "IGNORE_ALL_VERSION"
+authors = "knap43"
+description = '''
+A free-flying camera for screenshots: hidden HUD, world freeze in singleplayer,
+optional depth of field and an isometric view.
+'''
+
+[[mixins]]
+config = "photomode.mixins.json"
+
+[[dependencies.photomode]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.0,)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.photomode]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.21.2)"
+ordering = "NONE"
+side = "CLIENT"
