@@ -1,0 +1,30 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "holdtosprint"
+version = "1.0.0"
+displayName = "Hold to Sprint"
+displayTest = "IGNORE_ALL_VERSION"
+authors = "knap43"
+description = '''
+You sprint only while the sprint key is held; double-tapping forward no longer sprints.
+'''
+
+[[mixins]]
+config = "holdtosprint.mixins.json"
+
+[[dependencies.holdtosprint]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.0,)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.holdtosprint]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.21.2)"
+ordering = "NONE"
+side = "CLIENT"

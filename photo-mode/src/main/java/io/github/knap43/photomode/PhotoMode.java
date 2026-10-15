@@ -22,6 +22,7 @@ public final class PhotoMode {
 
         NeoForge.EVENT_BUS.addListener((ClientTickEvent.Pre e) -> PhotoController.onTick());
         NeoForge.EVENT_BUS.addListener((RenderFrameEvent.Pre e) -> PhotoController.onFrame());
+        NeoForge.EVENT_BUS.addListener((RenderFrameEvent.Post e) -> PhotoController.onFrameEnd());
         NeoForge.EVENT_BUS.addListener((ClientPlayerNetworkEvent.LoggingOut e) -> PhotoController.reset());
         NeoForge.EVENT_BUS.addListener((InputEvent.MouseScrollingEvent e) -> {
             if (PhotoController.scroll(e.getScrollDeltaY())) {

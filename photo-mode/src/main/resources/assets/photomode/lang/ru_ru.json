@@ -7,7 +7,6 @@
   "key.photomode.freeze": "Заморозить мир",
   "key.photomode.rotate_left": "Повернуть изометрию влево",
   "key.photomode.rotate_right": "Повернуть изометрию вправо",
-
   "photomode.msg.on": "Фоторежим",
   "photomode.msg.off": "Фоторежим выключен",
   "photomode.msg.player": "Игрок: %s",
@@ -18,10 +17,9 @@
   "photomode.msg.speed": "Скорость: %s блоков/с",
   "photomode.msg.zoom": "Высота кадра: %s блоков",
   "photomode.msg.dof_strength": "Сила размытия: %s",
-
   "photomode.hint.title": "Фоторежим",
   "photomode.hint.move": "Движение: WASD, прыжок, присед · Обзор: мышь",
   "photomode.hint.wheel": "Колесо: скорость (масштаб в изометрии) · Бег + колесо: размытие",
   "photomode.hint.keys": "%s игрок · %s глубина резкости · %s изометрия · %s заморозка",
-  "photomode.hint.exit": "%s — выйти · F2 — снимок экрана"
+  "photomode.hint.exit": "%s — сделать снимок · %s или Esc — выйти"
 }

@@ -7,6 +7,7 @@ import net.minecraft.client.CameraType;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
+import net.minecraft.client.Screenshot;
 import net.minecraft.client.player.Input;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.PostChain;
@@ -51,6 +52,7 @@ public final class PhotoController {
     private static float dofStrength = 1.0F;
 
     private static float focus = 8.0F;
+    private static boolean pendingPhoto;
     private static long lastFrameNanos;
     private static boolean hintShown;
 
@@ -73,7 +75,7 @@ public final class PhotoController {
 
     // ---------------------------------------------------------------- lifecycle
 
-    static void toggle() {
+    public static void toggle() {
         if (active) {
             exit();
         } else {
@@ -138,6 +140,7 @@ public final class PhotoController {
         MC.levelRenderer.needsUpdate();
         setServerFrozen(false);
         drainClicks();
+        pendingPhoto = false;
         camera = null;
         savedInput = null;
         PhotoHud.message(Component.translatable("photomode.msg.off"));
@@ -207,6 +210,28 @@ public final class PhotoController {
         while (PhotoKeys.ROTATE_RIGHT.consumeClick()) {
             rotate(90.0F);
         }
+        // Vanilla key handling is suspended in photo mode, so the attack button is free.
+        while (MC.options.keyAttack.consumeClick()) {
+            pendingPhoto = true;
+        }
+    }
+
+    /** True for the one frame that gets saved, so photo mode's own messages stay out of it. */
+    static boolean capturing() {
+        return pendingPhoto;
+    }
+
+    /** After the frame is fully drawn and before it is shown: save it. */
+    static void onFrameEnd() {
+        if (!pendingPhoto) {
+            return;
+        }
+        pendingPhoto = false;
+        if (!active) {
+            return;
+        }
+        Screenshot.grab(MC.gameDirectory, MC.getMainRenderTarget(),
+                saved -> MC.execute(() -> PhotoHud.message(saved)));
     }
 
     static void onFrame() {

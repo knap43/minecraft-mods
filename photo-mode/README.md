@@ -1,10 +1,12 @@
 # Photo Mode
 
-NeoForge 1.21.1, client-only. Press **P** to detach the camera and fly it freely through blocks with the HUD hidden; press **P** again to snap back. Press **F2** for a screenshot, as usual.
+NeoForge 1.21.1, client-only. Press **P** to detach the camera and fly it freely through blocks with the HUD hidden; press **P** again or **Esc** to snap back. **Left-click** takes the photo (F2 still works too).
 
 | Key | Action |
 |---|---|
 | P | Enter / leave photo mode |
+| Esc | Leave photo mode |
+| Left click (your attack button) | Take the photo, saved to `screenshots/` |
 | WASD, Jump, Sneak | Fly (forward follows where you look) |
 | Mouse | Look |
 | Wheel | Fly speed |

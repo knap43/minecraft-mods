@@ -1,0 +1,53 @@
+name: Hold to Sprint
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'hold-to-sprint/**'
+      - '.github/workflows/hold-to-sprint.yml'
+    tags: ['hold-to-sprint-v*']
+  pull_request:
+    paths:
+      - 'hold-to-sprint/**'
+      - '.github/workflows/hold-to-sprint.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    working-directory: hold-to-sprint
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: gradle/actions/setup-gradle@v5
+
+      - name: Build
+        run: |
+          chmod +x gradlew
+          ./gradlew build
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: hold-to-sprint
+          path: hold-to-sprint/build/libs/*.jar
+          if-no-files-found: error
+
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/hold-to-sprint-v')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Hold to Sprint ${{ github.ref_name }}
+          files: hold-to-sprint/build/libs/*.jar
+          generate_release_notes: true

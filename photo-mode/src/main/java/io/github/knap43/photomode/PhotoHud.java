@@ -43,7 +43,9 @@ final class PhotoHud {
                         PhotoKeys.DOF.getTranslatedKeyMessage(),
                         PhotoKeys.ISOMETRIC.getTranslatedKeyMessage(),
                         PhotoKeys.FREEZE.getTranslatedKeyMessage()),
-                Component.translatable("photomode.hint.exit", PhotoKeys.TOGGLE.getTranslatedKeyMessage())),
+                Component.translatable("photomode.hint.exit",
+                        Minecraft.getInstance().options.keyAttack.getTranslatedKeyMessage(),
+                        PhotoKeys.TOGGLE.getTranslatedKeyMessage())),
                 HINT_MS);
     }
 
@@ -55,7 +57,7 @@ final class PhotoHud {
 
     static void render(GuiGraphics graphics, DeltaTracker delta) {
         long age = Util.getMillis() - shownAt;
-        if (lines.isEmpty() || age > duration) {
+        if (lines.isEmpty() || age > duration || PhotoController.capturing()) {
             return;
         }
         float alpha = Mth.clamp((duration - age) / (float) FADE_MS, 0.0F, 1.0F);
